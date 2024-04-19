@@ -10,28 +10,45 @@ function send() {
         const options = {
             method: "POST",
             body: formData,
-                    };
+        };
 
         fetch('http://localhost:4040/teste', options)
             .then(response => response.json())
             .then(response => {
-                const conteudoPdf = response.conteudo;
-                const blob = base64toBlob(conteudoPdf, 'application/pdf');
+                let conteudoPdf = response.conteudo;
+                let blob = base64toBlob(conteudoPdf, 'application/pdf');
                 const fileName = "arquivo.pdf";
-                saveBlobAsFile(blob, fileName);
+                downloadBlob(blob, fileName);
+            })
+            .catch(error => {
+                console.log(error)
             });
     } else {
         console.error("Nenhum arquivo selecionado.");
     }
-
-    // Exemplo de uso dos valores de nome e número
-    // window.alert(`Nome: ${nome}, Número: ${numero}`);
 }
 
-function base64toPDF(base64String, fileName) {
-    // Convertendo a string Base64 em dados binários
-    const binaryString = Buffer.from(base64String, 'base64');
+function base64toBlob(base64String, contentType) {
+    const byteCharacters = atob(base64String);
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+    const byteArray = new Uint8Array(byteNumbers);
+    return new Blob([byteArray], { type: contentType });
+}
 
-    // Salvando os dados binários em um arquivo PDF
-    fs.writeFileSync(fileName, binaryString, { encoding: 'binary' });
+function downloadBlob(blob, fileName) {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = fileName || 'download';
+    const clickHandler = () => {
+        setTimeout(() => {
+            URL.revokeObjectURL(url);
+            a.removeEventListener('click', clickHandler);
+        }, 150);
+    };
+    a.addEventListener('click', clickHandler, false);
+    a.click();
 }
