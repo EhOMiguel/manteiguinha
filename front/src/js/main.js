@@ -14,11 +14,26 @@ function send() {
 
         fetch('http://localhost:4040/teste', options)
             .then(response => response.json())
-            .then(response => {
-                let conteudoPdf = response.conteudo;
-                let blob = base64toBlob(conteudoPdf, 'application/pdf');
-                const fileName = "arquivo.pdf";
-                downloadBlob(blob, fileName);
+            // Esse código será necessário se e somente se você quiser baixar o pdf
+            // .then(response => {
+            //     let conteudoPdf = response.conteudo;
+            //     let blob = base64toBlob(conteudoPdf, 'application/pdf');
+            //     const fileName = "arquivo.pdf";
+            //     downloadBlob(blob, fileName);
+            // })
+            .then(response => {    
+                let json = JSON.stringify(response);
+                let blob = new Blob([json], { type: "application/json" });
+                let url = URL.createObjectURL(blob);
+                let link = document.createElement("a");
+                
+                link.download = "dados.json";
+                link.href = url;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                console.log("coraçãozinho S2 S2 *>_<*")
             })
             .catch(error => {
                 console.log(error)
@@ -52,3 +67,6 @@ function downloadBlob(blob, fileName) {
     a.addEventListener('click', clickHandler, false);
     a.click();
 }
+
+// Para executar os testes em jest
+module.exports = send; 
