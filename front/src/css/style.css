@@ -20,6 +20,13 @@ body {
     margin-left: 1dvw;
 }
 
+#menu {
+    display: flex; /* Ativa o Flexbox */
+}
+
+#title-assinador{
+    margin-top: 1dvh;
+}
 /* circulo */
 .circulo {
     width: 25dvw;
