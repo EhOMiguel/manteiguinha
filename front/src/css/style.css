@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Raleway', sans-serif;
 }
 
 body {
@@ -10,7 +13,7 @@ body {
 /* Menu */
 .menu {
     background-color: white;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5); /* Aumente o desfoque e a propagação para mais profundidade */
+    box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.3); /* Aumente o desfoque e a propagação para mais profundidade */
     padding: 10px;
 }
 
@@ -27,16 +30,24 @@ body {
 #title-assinador{
     margin-top: 1dvh;
 }
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+}
+
 /* circulo */
 .circulo {
-    width: 25dvw;
-    height: 50dvh;
+    width: 400px;
+    height: 400px;
     background-color: #023E7C;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 5dvh;
 }
 
 .div-center{
@@ -53,7 +64,8 @@ body {
     border-radius: 10cap ; /* Bordas arredondadas */
     font-size: 16px; /* Tamanho do texto */
     cursor: pointer; /* Cursor do mouse como ponteiro */
-    width: 30cap;
+    width: 300px;
+    font-weight: bold;
 }
 
 .botao-validar {
@@ -65,7 +77,8 @@ body {
     font-size: 16px; /* Tamanho do texto */
     cursor: pointer; /* Cursor do mouse como ponteiro */
     border: 1px solid #023E7C;
-    width: 30cap;
+    width: 300px;
+    font-weight: bold;
 }
 
 .div-botoes{
@@ -83,7 +96,7 @@ body {
 }
 
 .botao-validar:hover {
-    background-color: #cecece; /* Uma cor azul mais escura para o hover */
+    background-color: rgba(0, 0, 0, 0.07); /* Uma cor azul mais escura para o hover */
 }
 
 /* Form Assinar */
@@ -96,7 +109,7 @@ body {
 
 .div-form-assinador label {
     display: block;
-    margin-top: 20px;
+    /* margin-top: 20px; */
 }
 
 .div-form-assinador input[type="text"],
@@ -132,12 +145,20 @@ body {
 }
 
 .custom-file-upload {
-    display: inline-block;
+    display: flex;
     padding: 10px 20px;
     cursor: pointer;
     background-color: #ddd;
     border-radius: 5px;
     margin-bottom: 1dvh;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.custom-file-upload img{
+    width: 150px;
+    filter: contrast(1) hue-rotate(295deg);
 }
   
 #file-input {

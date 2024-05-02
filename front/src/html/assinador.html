@@ -21,22 +21,30 @@
         </svg>
         <h2 id="title-assinador">Assinador</h2>
     </div>
-    <!-- Assinar -->
-    <div class="center">
-        <div class="div-form-assinador">
-            <form class="form-flex">
-                <label for="nome" id="label-nome">Nome:</label>
-                <input type="text" id="nome" name="nome" required>
-                <label for="nome" id="label-token">Token:</label>
-                <input type="text" id="token" name="nome" required>
-                <!-- A div para arrastar ou clicar -->
-                <label for="file-input" class="custom-file-upload">Arraste seu arquivo aqui ou clique para selecionar</label>
-                <input type="file" id="file-input" class="input-file fileInput">
-                <!-- O botão para enviar o formulário -->
-                <button class="botao-assinar" id="assinar-arquivo" type="submit">Assinar arquivo</button>
-            </form>
-        </div>                
+
+    <div class="container">
+        <!-- Assinar -->
+        <div class="center">
+            <div class="div-form-assinador">
+                <form class="form-flex">
+                    <label for="nome" id="label-nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                    <label for="nome" id="label-token">Token:</label>
+                    <input type="text" id="token" name="nome" required>
+                    <!-- A div para arrastar ou clicar -->
+                    <div class="custom-file-upload">
+                        <img src="../img/file.png"> 
+                        <label for="file-input">Arraste seu arquivo aqui ou clique para selecionar</label>
+                    </div>
+                    
+                    <input type="file" id="file-input" class="input-file fileInput">
+                    <!-- O botão para enviar o formulário -->
+                    <button class="botao-assinar" id="assinar-arquivo" type="submit">Assinar arquivo</button>
+                </form>
+            </div>                
+        </div>
     </div>
+
 </body>
 <footer class="footer-azul">
     <!-- Conteúdo do footer aqui -->
