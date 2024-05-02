@@ -85,6 +85,65 @@ body {
 .botao-validar:hover {
     background-color: #cecece; /* Uma cor azul mais escura para o hover */
 }
+
+/* Form Assinar */
+.div-form-assinador{
+    width: 20dvw;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.div-form-assinador label {
+    display: block;
+    margin-top: 20px;
+}
+
+.div-form-assinador input[type="text"],
+.div-form-assinador .input-file {
+    width: 90%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 1dvh;
+}
+
+.div-form-assinador .input-file {
+    border: 1px dashed;
+    text-align: center;
+    background-color: #ddd; /* Fundo cinza claro do input de arquivo */
+}
+
+#assinar-arquivo{
+ width: 15dvw;
+ margin-left: 2dvw;
+}
+
+.form-flex{
+    display: grid;
+}
+
+.center {
+    margin-top: 10dvh;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin-bottom: 1dvh;
+}
+  
+#file-input {
+    display: none;
+}  
+
 /* Footer */
 .footer-azul {
     background-color: #023E7C; /* Cor azul do footer */
