@@ -1,4 +1,4 @@
-function send(token, arquivo) {
+function sendAssinatura(token, arquivo) {
     const formData = new FormData();
     formData.append("arquivo", arquivo);
     formData.append("token", token);
@@ -33,7 +33,7 @@ function send(token, arquivo) {
                     }
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        send(token, arquivo); // Chama a função send
+                        sendAssinatura(token, arquivo); // Chama a função send
                     }
                 });
                 throw new Error('Erro na requisição: ' + response.statusText);
@@ -60,6 +60,60 @@ function send(token, arquivo) {
             document.body.removeChild(link);
 
             console.log("coraçãozinho S2 S2 *>_<*")
+        })
+        .catch(error => {
+            console.log(error)
+        });
+
+}
+
+function sendVerificador(assinatura, arquivo) {
+    const formData = new FormData();
+    formData.append("arquivoAssinado", arquivo);
+    formData.append("arquivoJson", assinatura);
+
+    const options = {
+        method: "POST",
+        body: formData,
+    };
+
+    fetch('http://localhost:8083/verificar', options)
+        .then(response => {
+            if (response.status === 200) {
+                return response;
+            } else {
+                Swal.fire({
+                    title: "Houve um problema ao verificar o seu Arquivo",
+                    icon: "error",
+                    confirmButtonText: 'Tentar novamente',
+                    buttonsStyling: false,
+                    customClass: {
+                        confirmButton: 'botao-assinar'
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        sendVerificador(assinatura, arquivo);
+                    }
+                });
+                throw new Error('Erro na requisição: ' + response.statusText);
+            }
+        })
+        .then(response => response.text())
+        .then(text => {
+            if (text == 'Integridade verificada :)'){
+                Swal.fire({
+                    title: text,
+                    icon: "success",
+                    showConfirmButton: false
+                })
+            }
+            else{
+                Swal.fire({
+                    title: text,
+                    icon: "error",
+                    showConfirmButton: false
+                })
+            }
         })
         .catch(error => {
             console.log(error)

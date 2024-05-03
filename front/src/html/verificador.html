@@ -6,7 +6,7 @@
     <title>Manteiguinha</title>
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/main.js"></script>
-    <script src="../js/custom.js" defer></script>
+    <script src="../js/custom2.js" defer></script>
     <!-- SweetAlert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
@@ -28,16 +28,29 @@
         <!-- Verificar -->
         <div class="center">
             <div class="div-form-assinador">
-                <form id="form-assinar" class="form-flex">
-                    <!-- A div para arrastar ou clicar -->
-                    <label id="drop" for="file-input" class="custom-file-upload">
-                        <img src="../img/file.png"> 
-                        <div id="file-name">Arraste seu arquivo aqui ou clique para selecionar</div>
-                    </label>
-                    
-                    <input type="file" id="file-input" class="input-file fileInput">
+                <form id="form-verificar" class="form-flex">
+                   
+                    <div class="inputs">
+                        <!-- A div para arrastar ou clicar -->
+                        <label id="drop-file" for="file-input-file" class="custom-file-upload">
+                            <img src="../img/file.png"> 
+                            <div id="file-name-file">Arraste seu arquivo PDF ou clique para selecionar</div>
+                        </label>
+                        
+                        <input type="file" id="file-input-file" class="input-file fileInput">
+
+
+
+                        <label id="drop-ass" for="file-input-ass" class="custom-file-upload">
+                            <img src="../img/sign.png"> 
+                            <div id="file-name-ass">Arraste a assinatura ou clique para selecionar</div>
+                        </label>
+                        
+                        <input type="file" id="file-input-ass" class="input-file fileInput">
+                    </div>
+               
                     <!-- O botão para Validar o arquivo -->
-                    <button class="botao-assinar" id="assinar-arquivo" type="submit">Validar arquivo</button>
+                    <button class="botao-assinar" id="verificar-arquivo" type="submit">Verificar arquivo</button>
                 </form>
             </div>                
         </div>
