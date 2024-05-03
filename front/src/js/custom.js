@@ -22,6 +22,9 @@ drop.addEventListener('drop', (event) => {
   event.preventDefault();
   drop.classList.remove('dragover');
   const files = event.dataTransfer.files;
+
+  document.getElementById('file-input').files = files;
+
   handleFiles(files);
 });
 

@@ -67,6 +67,8 @@ body {
     width: 300px;
     font-weight: bold;
     place-self: center;
+    text-align: center;
+    text-decoration: none;
 }
 
 .botao-validar {
@@ -80,7 +82,9 @@ body {
     border: 1px solid #023E7C;
     width: 300px;
     font-weight: bold;
-    place-self: center;
+    /* place-self: center; */
+    text-align: center;
+    text-decoration: none;
 }
 
 .div-botoes{

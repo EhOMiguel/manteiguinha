@@ -9,14 +9,6 @@ function send(token, arquivo) {
     };
 
     fetch('http://localhost:8081/api/rota', options)
-        .then(response => response.json())
-        // Esse código será necessário se e somente se você quiser baixar o pdf
-        // .then(response => {
-        //     let conteudoPdf = response.conteudo;
-        //     let blob = base64toBlob(conteudoPdf, 'application/pdf');
-        //     const fileName = "arquivo.pdf";
-        //     downloadBlob(blob, fileName);
-        // })
         .then(response => {
             if (response.status === 200) {
                 Swal.fire({
@@ -29,7 +21,7 @@ function send(token, arquivo) {
                         confirmButton: 'botao-assinar'
                     }
                 })
-                return response.json();
+                return response;
             } else {
                 Swal.fire({
                     title: "Houve um problema ao assinar o seu Arquivo",
@@ -47,6 +39,14 @@ function send(token, arquivo) {
                 throw new Error('Erro na requisição: ' + response.statusText);
             }
         })
+        .then(response => response.json())
+        // Esse código será necessário se e somente se você quiser baixar o pdf
+        // .then(response => {
+        //     let conteudoPdf = response.conteudo;
+        //     let blob = base64toBlob(conteudoPdf, 'application/pdf');
+        //     const fileName = "arquivo.pdf";
+        //     downloadBlob(blob, fileName);
+        // })
         .then(response => {    
             let json = JSON.stringify(response);
             let blob = new Blob([json], { type: "application/json" });
