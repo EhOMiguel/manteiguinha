@@ -27,7 +27,7 @@ body {
     display: flex; /* Ativa o Flexbox */
 }
 
-#title-assinador{
+#title-assinador, #title-verificador{
     margin-top: 1dvh;
 }
 
@@ -93,7 +93,7 @@ body {
 }
 
 
-.botao-assinar:hover {
+.botao-assinar:hover, .botao-download:hover {
     background-color: #026ad2; /* Uma cor verde mais escura para o hover */
 }
 
@@ -102,7 +102,7 @@ body {
 }
 
 /* Form Assinar */
-.div-form-assinador{
+.div-form-assinador, .div-alert{
     width: 20dvw;
     background-color: white;
     padding: 20px;
