@@ -1,46 +1,70 @@
-function send() {
-    const nome = document.getElementById("nameText").value;
-    const numero = document.getElementById("numberInput").value;
-    const arquivo = document.getElementById("fileInput").files[0];
+function send(token, arquivo) {
+    const formData = new FormData();
+    formData.append("arquivo", arquivo);
+    formData.append("token", token);
 
-    if (arquivo) {
-        const formData = new FormData();
-        formData.append("arquivo", arquivo);
+    const options = {
+        method: "POST",
+        body: formData,
+    };
 
-        const options = {
-            method: "POST",
-            body: formData,
-        };
+    fetch('http://localhost:8081/api/rota', options)
+        .then(response => response.json())
+        // Esse código será necessário se e somente se você quiser baixar o pdf
+        // .then(response => {
+        //     let conteudoPdf = response.conteudo;
+        //     let blob = base64toBlob(conteudoPdf, 'application/pdf');
+        //     const fileName = "arquivo.pdf";
+        //     downloadBlob(blob, fileName);
+        // })
+        .then(response => {
+            if (response.status === 200) {
+                Swal.fire({
+                    title: "Seu Arquivo foi assinado com sucesso",
+                    icon: "success",
+                    showConfirmButton: false,
+                    confirmButtonText: 'Baixar Assinatura',
+                    buttonsStyling: false,
+                    customClass: {
+                        confirmButton: 'botao-assinar'
+                    }
+                })
+                return response.json();
+            } else {
+                Swal.fire({
+                    title: "Houve um problema ao assinar o seu Arquivo",
+                    icon: "error",
+                    confirmButtonText: 'Tentar novamente',
+                    buttonsStyling: false,
+                    customClass: {
+                        confirmButton: 'botao-assinar'
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        send(token, arquivo); // Chama a função send
+                    }
+                });
+                throw new Error('Erro na requisição: ' + response.statusText);
+            }
+        })
+        .then(response => {    
+            let json = JSON.stringify(response);
+            let blob = new Blob([json], { type: "application/json" });
+            let url = URL.createObjectURL(blob);
+            let link = document.createElement("a");
+            
+            link.download = "assinatura.json";
+            link.href = url;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
 
-        fetch('http://localhost:4040/teste', options)
-            .then(response => response.json())
-            // Esse código será necessário se e somente se você quiser baixar o pdf
-            // .then(response => {
-            //     let conteudoPdf = response.conteudo;
-            //     let blob = base64toBlob(conteudoPdf, 'application/pdf');
-            //     const fileName = "arquivo.pdf";
-            //     downloadBlob(blob, fileName);
-            // })
-            .then(response => {    
-                let json = JSON.stringify(response);
-                let blob = new Blob([json], { type: "application/json" });
-                let url = URL.createObjectURL(blob);
-                let link = document.createElement("a");
-                
-                link.download = "dados.json";
-                link.href = url;
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
+            console.log("coraçãozinho S2 S2 *>_<*")
+        })
+        .catch(error => {
+            console.log(error)
+        });
 
-                console.log("coraçãozinho S2 S2 *>_<*")
-            })
-            .catch(error => {
-                console.log(error)
-            });
-    } else {
-        console.error("Nenhum arquivo selecionado.");
-    }
 }
 
 function base64toBlob(base64String, contentType) {

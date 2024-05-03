@@ -6,7 +6,9 @@
     <title>Manteiguinha</title>
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/main.js"></script>
-    <script src="../js/custom.js"></script>
+    <script src="../js/custom.js" defer></script>
+    <!-- SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <div class="menu" id="menu">
@@ -26,16 +28,16 @@
         <!-- Assinar -->
         <div class="center">
             <div class="div-form-assinador">
-                <form class="form-flex">
+                <form id="form-assinar" class="form-flex">
                     <label for="nome" id="label-nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" required>
+                    <input type="text" id="nome" name="nome">
                     <label for="nome" id="label-token">Token:</label>
-                    <input type="text" id="token" name="nome" required>
+                    <input type="text" id="token" name="nome">
                     <!-- A div para arrastar ou clicar -->
-                    <div class="custom-file-upload">
+                    <label id="drop" for="file-input" class="custom-file-upload">
                         <img src="../img/file.png"> 
-                        <label for="file-input">Arraste seu arquivo aqui ou clique para selecionar</label>
-                    </div>
+                        <div id="file-name">Arraste seu arquivo aqui ou clique para selecionar</div>
+                    </label>
                     
                     <input type="file" id="file-input" class="input-file fileInput">
                     <!-- O botão para enviar o formulário -->
