@@ -1,6 +1,18 @@
 const dropFile = document.getElementById('drop-file');
 const dropAss = document.getElementById('drop-ass');
 
+// Função para tratar o evento de mudança e capturar o arquivo selecionado
+document.getElementById('file-input-file').addEventListener('change', function(event) {
+  var files = event.target.files;
+  handleFiles(files, 'arquivo');
+});
+
+// Função para tratar o evento de mudança e capturar o arquivo selecionado
+document.getElementById('file-input-ass').addEventListener('change', function(event) {
+  var files = event.target.files;
+  handleFiles(files, 'assinatura');
+});
+
 // Evento ao arrastar o arquivo sobre a área de soltura
 dropFile.addEventListener('dragover', (event) => {
   event.preventDefault();

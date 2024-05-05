@@ -69,6 +69,7 @@ body {
     place-self: center;
     text-align: center;
     text-decoration: none;
+    border: 1px solid #023E7C;
 }
 
 .botao-validar {
@@ -99,6 +100,7 @@ body {
 
 .botao-assinar:hover, .botao-download:hover {
     background-color: #026ad2; /* Uma cor verde mais escura para o hover */
+    border: 1px solid #026ad2;
 }
 
 .botao-validar:hover {
@@ -111,6 +113,7 @@ body {
     padding: 20px;
     box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.3);
     border-radius: 8px;
+    min-width: 25dvw;
 }
 
 .div-form-assinador input[type="text"],
@@ -169,6 +172,7 @@ body {
     align-items: center;
     text-align: center;
     border: 1px solid transparent;
+    justify-content: space-between;
 }
 
 .custom-file-upload img{
@@ -176,8 +180,15 @@ body {
     filter: contrast(1) hue-rotate(295deg);
 }
 
+.custom-file-upload.ass img{
+    margin-top: 30px;
+    width: 100px;
+    filter: none;
+}
+
 .custom-file-upload div {
     margin-bottom: 20px;
+    font-weight: 500;
 }
 
 .dragover {
