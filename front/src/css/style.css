@@ -1,24 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Raleway', sans-serif;
 }
 
-#form{
+body {
+    background-color: #f5f5f5; /* Esta é uma cor cinza claro */
+}
+
+/* Menu */
+.menu {
+    background-color: white;
+    box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.3); /* Aumente o desfoque e a propagação para mais profundidade */
+    padding: 10px;
+}
+
+.menu h2 {
+    font-weight: bold;
+    color: #023E7C;
+    margin-left: 1dvw;
+}
+
+#menu {
+    display: flex; /* Ativa o Flexbox */
+}
+
+#title-assinador, #title-verificador{
+    margin-top: 1dvh;
+}
+
+.container{
     display: flex;
     flex-direction: column;
-    width: 500px;
-    height: 300px;
-    margin: auto;
+    align-items: center;
     justify-content: center;
-    gap: 10px;
+    min-height: 70vh;
 }
 
-.nameText, .numberInput{
-    height: 20px;
-    border-radius: 10px;
+/* circulo */
+.circulo {
+    width: 400px;
+    height: 400px;
+    background-color: #023E7C;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.fileInput{
-    width: 500px;
-    border-radius: 10px;
+.div-center{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+/* botões */
+.botao-assinar {
+    background-color: #023E7C; /* Cor de fundo azul */
+    color: white; /* Texto branco */
+    padding: 10px 20px; /* Espaçamento interno */
+    border: none; /* Sem borda */
+    border-radius: 10cap ; /* Bordas arredondadas */
+    font-size: 16px; /* Tamanho do texto */
+    cursor: pointer; /* Cursor do mouse como ponteiro */
+    width: 300px;
+    font-weight: bold;
+    place-self: center;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #023E7C;
+}
+
+.botao-validar {
+    background-color: transparent; 
+    color: #023E7C; /* Texto branco */
+    padding: 10px 20px; /* Espaçamento interno */
+    border: none; /* Sem borda */
+    border-radius: 10cap ; /* Bordas arredondadas */
+    font-size: 16px; /* Tamanho do texto */
+    cursor: pointer; /* Cursor do mouse como ponteiro */
+    border: 1px solid #023E7C;
+    width: 300px;
+    font-weight: bold;
+    /* place-self: center; */
+    text-align: center;
+    text-decoration: none;
+}
+
+.div-botoes{
+    margin: 2dvh 0 0 0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Isso faz com que os botões sejam empilhados verticalmente */
+    gap: 10px; /* Isso adiciona um espaço entre os botões */
+}
+
+
+.botao-assinar:hover, .botao-download:hover {
+    background-color: #026ad2; /* Uma cor verde mais escura para o hover */
+    border: 1px solid #026ad2;
+}
+
+.botao-validar:hover {
+    background-color: rgba(0, 0, 0, 0.07); /* Uma cor azul mais escura para o hover */
+}
+
+/* Form Assinar */
+.div-form-assinador, .div-alert{
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    min-width: 25dvw;
+}
+
+.div-form-assinador input[type="text"],
+.div-form-assinador .input-file {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 3dvh;
+}
+
+.div-form-assinador .input-file {
+    border: 1px dashed;
+    text-align: center;
+    background-color: #ddd; /* Fundo cinza claro do input de arquivo */
+}
+
+@keyframes flash-border {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: #ff0000; }
+}
+
+.input-invalido {
+    /* border: 1px solid #ff0000 !important; */
+    animation: flash-border 0.7s 3 alternate;
+}
+
+.form-flex{
+    display: grid;
+}
+
+.inputs{
+    display: flex;
+    gap: 20px;
+}
+
+.inputs .custom-file-upload{
+    width: 200px;
+}
+
+.center {
+    margin-top: 10dvh;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.custom-file-upload {
+    display: flex;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin-bottom: 3dvh;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid transparent;
+    justify-content: space-between;
+}
+
+.custom-file-upload img{
+    width: 150px;
+    filter: contrast(1) hue-rotate(295deg);
+}
+
+.custom-file-upload.ass img{
+    margin-top: 30px;
+    width: 100px;
+    filter: none;
+}
+
+.custom-file-upload div {
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.dragover {
+    border: 3px dashed #023E7C;
+}
+  
+.fileInput {
+    display: none;
+}  
+
+/* Footer */
+.footer-azul {
+    background-color: #023E7C; /* Cor azul do footer */
+    padding: 1cap 0; /* Espaçamento interno vertical */
+    width: 100%; /* O footer se estenderá por toda a largura da página */
+    position: absolute; /* Posiciona o footer no final da página */
+    bottom: 0; /* Alinha o footer na parte inferior da página */
 }

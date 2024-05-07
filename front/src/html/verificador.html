@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manteiguinha</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/main.js"></script>
+    <script src="../js/custom2.js" defer></script>
+    <!-- SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="menu" id="menu">
+        <a href="index.html">
+            <img src="../img/index.svg" alt="logo do site" width="82" height="52"> 
+        </a>
+        <h2 id="title-verificador">Verificador</h2>
+    </div>
+
+    <div class="container">
+        <!-- Verificar -->
+        <div class="center">
+            <div class="div-form-assinador">
+                <form id="form-verificar" class="form-flex">
+                   
+                    <div class="inputs">
+                        <!-- A div para arrastar ou clicar -->
+                        <label id="drop-file" for="file-input-file" class="custom-file-upload">
+                            <img src="../img/file.png"> 
+                            <div id="file-name-file">Arraste seu arquivo PDF ou clique para selecionar</div>
+                        </label>
+                        
+                        <input type="file" id="file-input-file" class="input-file fileInput">
+
+
+
+                        <label id="drop-ass" for="file-input-ass" class="custom-file-upload ass">
+                            <img src="../img/sign.svg"> 
+                            <div id="file-name-ass">Arraste a assinatura ou clique para selecionar</div>
+                        </label>
+                        
+                        <input type="file" id="file-input-ass" class="input-file fileInput">
+                    </div>
+               
+                    <!-- O botão para Validar o arquivo -->
+                    <button class="botao-assinar" id="verificar-arquivo" type="submit">Verificar arquivo</button>
+                </form>
+            </div>                
+        </div>
+    </div>
+
+</body>
+<footer class="footer-azul">
+    <!-- Conteúdo do footer aqui -->
+</footer>
+</html>
+
+
+    

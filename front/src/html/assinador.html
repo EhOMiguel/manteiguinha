@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manteiguinha</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/main.js"></script>
+    <script src="../js/custom.js" defer></script>
+    <!-- SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="menu" id="menu">
+        <a href="index.html">
+            <img src="../img/index.svg" alt="" width="82" height="52"> 
+        </a>
+        <h2 id="title-assinador">Assinador</h2>
+    </div>
+
+    <div class="container">
+        <!-- Assinar -->
+        <div class="center">
+            <div class="div-form-assinador">
+                <form id="form-assinar" class="form-flex">
+                    <label for="nome" id="label-nome">Nome:</label>
+                    <input type="text" id="nome" name="nome">
+                    <label for="nome" id="label-token">Token:</label>
+                    <input type="text" id="token" name="nome">
+                    <!-- A div para arrastar ou clicar -->
+                    <label id="drop" for="file-input" class="custom-file-upload">
+                        <img src="../img/file.png"> 
+                        <div id="file-name">Arraste seu arquivo PDF ou clique para selecionar</div>
+                    </label>
+                    
+                    <input type="file" id="file-input" class="input-file fileInput">
+                    <!-- O botão para enviar o formulário -->
+                    <button class="botao-assinar" id="assinar-arquivo" type="submit">Assinar arquivo</button>
+                </form>
+            </div>                
+        </div>
+    </div>
+
+</body>
+<footer class="footer-azul">
+    <!-- Conteúdo do footer aqui -->
+</footer>
+</html>
+
+
+    
